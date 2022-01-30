@@ -6,7 +6,7 @@
 /*   By: whan <whan@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 13:56:18 by whan              #+#    #+#             */
-/*   Updated: 2022/01/31 02:51:12 by whan             ###   ########.fr       */
+/*   Updated: 2022/01/31 03:00:49 by whan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int	ft_str_count(char const *s, char c)
 	return (count);
 }
 
-static void	*ft_free(char **s2, int j)
+static void	*ft_freee(char **s2, int j)
 {
 	int	i;
 
@@ -70,7 +70,7 @@ static char	**ft_chr_count(char **s2, char const *s, char c)
 			}
 			s2[j] = (char *)malloc(sizeof(char) * (count + 1));
 			if (!s2[j])
-				return (ft_free(s2, j - 1));
+				return (ft_freee(s2, j - 1));
 		}
 	}
 	return (s2);

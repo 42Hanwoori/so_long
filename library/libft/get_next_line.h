@@ -6,7 +6,7 @@
 /*   By: whan <whan@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 14:28:37 by whan              #+#    #+#             */
-/*   Updated: 2022/01/31 02:53:29 by whan             ###   ########.fr       */
+/*   Updated: 2022/01/31 02:56:40 by whan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@
 
 # define OPEN_SIZE 256
 
-t_string    get_next_line(t_i32 filedescriptor);
+t_string	get_next_line(t_i32 filedescriptor);
 
 #endif
