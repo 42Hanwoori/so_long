@@ -3,45 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: whan <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: whan <whan@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/08 19:00:09 by whan              #+#    #+#             */
-/*   Updated: 2020/11/02 17:37:31 by whan             ###   ########.fr       */
+/*   Updated: 2022/01/31 02:12:37 by whan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	how_long(const char *sen)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	size_t len;
+	size_t	i;
+	size_t	j;
 
-	len = 0;
-	while (sen[len])
-		len++;
-	return (len);
-}
-
-char			*ft_strnstr(const char *haystack,
-	const char *needle, size_t len)
-{
-	size_t i;
-	size_t j;
-
-	i = 0;
-	if (*needle == 0)
+	if (!needle[0])
 		return ((char *)haystack);
-	while (haystack[i] && i < len)
+	i = 0;
+	while (i < len && haystack[i])
 	{
 		j = 0;
-		if (haystack[i] == needle[j])
+		while (haystack[i + j] && haystack[i + j] == needle[j] && i + j < len)
 		{
-			while (haystack[i + j] == needle[j] && needle[j] && i + j < len)
-				j++;
-			if (j == how_long(needle))
+			j++;
+			if (!needle[j])
 				return ((char *)&haystack[i]);
 		}
 		i++;
 	}
-	return (0);
+	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: whan <whan@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 13:23:20 by whan              #+#    #+#             */
-/*   Updated: 2022/01/30 00:29:49 by whan             ###   ########.fr       */
+/*   Updated: 2022/01/31 02:42:24 by whan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,17 @@ void
 		game->map.map[game->player.pos_y][game->player.pos_x] = '0';
 		game->map.number_of_collectibles -= 1;
 	}
-	if (game->map.map[game->player.pos_y][game->player.pos_x] == 'E' AND \
-	game->map.number_of_collectibles == 0)//탈출할때
+	if (game->map.map[game->player.pos_y][game->player.pos_x] == 'E' AND
+		game->map.number_of_collectibles == 0)
 	{
 		game->map.map[game->player.pos_y][game->player.pos_x] = '0';
-		mlx_put_image_to_window(game->mlx, game->window, game->images.ground, \
-		x, y);//E가 있었던 곳에 땅 다시깔고
-		mlx_put_image_to_window(game->mlx, game->window, \
-		game->images.charizard, game->player.pos_x * IMG_HEIGHT, \
-		game->player.pos_y * IMG_WIDTH);//새로 움직인데다 player 그린다
+		mlx_put_image_to_window(game->mlx, game->window, game->images.ground,
+			x, y);
+		mlx_put_image_to_window(game->mlx, game->window,
+			game->images.charizard, game->player.pos_x * IMG_HEIGHT,
+			game->player.pos_y * IMG_WIDTH);
 		write(1, "You won!\n", 9);
-		game->end = 1;//게임끝
+		game->end = 1;
 	}
 }
 

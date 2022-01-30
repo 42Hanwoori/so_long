@@ -6,7 +6,7 @@
 /*   By: whan <whan@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 15:25:57 by whan              #+#    #+#             */
-/*   Updated: 2022/01/31 01:31:54 by whan             ###   ########.fr       */
+/*   Updated: 2022/01/31 02:43:27 by whan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	open_map(char *map)
 	return (filedescriptor);
 }
 
-void		read_map(t_game *game)
+void	read_map(t_game *game)
 {
 	char	*buffer;
 	int		buffer_length;
@@ -51,7 +51,7 @@ void		read_map(t_game *game)
 	close(filedescriptor);
 }
 
-int			read_for_height(char *path_map)
+int	read_for_height(char *path_map)
 {
 	int		index;
 	int		filedescriptor;

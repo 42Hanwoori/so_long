@@ -6,7 +6,7 @@
 /*   By: whan <whan@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 13:42:26 by whan              #+#    #+#             */
-/*   Updated: 2022/01/30 00:57:33 by whan             ###   ########.fr       */
+/*   Updated: 2022/01/31 02:38:30 by whan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	check_number_of_arguments(int number_of_arguments)
 		error("invalid number of arguments");
 }
 
-void		check_arguments(int number_of_arguments, char **arguments)
+void	check_arguments(int number_of_arguments, char **arguments)
 {
 	check_number_of_arguments(number_of_arguments);
 	check_file_extension(arguments);

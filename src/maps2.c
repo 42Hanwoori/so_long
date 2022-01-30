@@ -6,7 +6,7 @@
 /*   By: whan <whan@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 15:57:33 by whan              #+#    #+#             */
-/*   Updated: 2022/01/31 01:49:19 by whan             ###   ########.fr       */
+/*   Updated: 2022/01/31 02:43:35 by whan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ static void	replace_too_many_player(t_game *game)
 	}
 }
 
-void		parse_map(t_game *game)
+void	parse_map(t_game *game)
 {
 	check_map_is_rectangular(game);
 	check_map_is_surrounded_by_walls(game);

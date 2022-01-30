@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: whan <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: whan <whan@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 21:13:19 by whan              #+#    #+#             */
-/*   Updated: 2020/10/23 12:05:44 by whan             ###   ########.fr       */
+/*   Updated: 2022/01/31 02:08:43 by whan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,25 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t			i;
-	unsigned char	*udst;
-	unsigned char	*usrc;
+	unsigned char		*uc_dst;
+	const unsigned char	*uc_src;
+	size_t				i;
 
-	i = 0;
-	udst = (unsigned char *)dst;
-	usrc = (unsigned char *)src;
 	if (!dst && !src)
-		return (0);
+		return (NULL);
+	uc_dst = (unsigned char *)dst;
+	uc_src = (unsigned char *)src;
 	if (dst <= src)
+	{
+		i = 0;
 		while (i < len)
 		{
-			udst[i] = usrc[i];
+			uc_dst[i] = uc_src[i];
 			i++;
 		}
+	}
 	else
-		while (len > 0)
-		{
-			udst[i + len - 1] = usrc[i + len - 1];
-			len--;
-		}
+		while (len--)
+			uc_dst[len] = uc_src[len];
 	return (dst);
 }

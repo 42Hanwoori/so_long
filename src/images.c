@@ -6,7 +6,7 @@
 /*   By: whan <whan@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 14:29:28 by whan              #+#    #+#             */
-/*   Updated: 2022/01/29 23:57:29 by whan             ###   ########.fr       */
+/*   Updated: 2022/01/31 02:43:28 by whan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void	put_underground(t_game *game, char *path)
 	}
 }
 
-void		display_map(t_game *game)
+void	display_map(t_game *game)
 {
 	int	x;
 	int	y;

@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: whan <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: whan <whan@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 22:31:34 by whan              #+#    #+#             */
-/*   Updated: 2020/11/02 17:38:17 by whan             ###   ########.fr       */
+/*   Updated: 2022/01/31 02:13:26 by whan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		inset(char const *set, char check)
+static int	inset(char const *set, char check)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	while (set[++i])
@@ -45,7 +45,7 @@ static size_t	find_end(char const *sen, char const *set)
 	return (i);
 }
 
-char			*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*tsen;
 	size_t	len;

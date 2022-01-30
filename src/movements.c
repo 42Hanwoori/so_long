@@ -6,7 +6,7 @@
 /*   By: whan <whan@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 09:19:47 by whan              #+#    #+#             */
-/*   Updated: 2022/01/30 00:06:13 by whan             ###   ########.fr       */
+/*   Updated: 2022/01/31 02:46:41 by whan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ static void	move_up(t_game *game, int tmp_x, int tmp_y)
 			return ;
 		game->player.pos_y -= 1;
 		game->player.number_of_movements += 1;
-		check_on_position(game, tmp_x, tmp_y);//game 구조체 내 맵정보를 최신화 하고 v
+		check_on_position(game, tmp_x, tmp_y);
 		if (game->end != 0)
 			return ;
 		mlx_put_image_to_window(game->mlx, game->window, game->images.ground, \
-		tmp_x, tmp_y);//새로운 곳에 땅 깔고
+		tmp_x, tmp_y);
 		mlx_put_image_to_window(game->mlx, game->window, \
 		game->images.charmander[1], game->player.pos_x * IMG_HEIGHT, \
-		game->player.pos_y * IMG_WIDTH); //새로운곳에 캐릭터 깔기
+		game->player.pos_y * IMG_WIDTH);
 		write(1, "Player's moves: ", 16);
 		write(1, ft_itoa(game->player.number_of_movements), \
 		ft_strlen(ft_itoa(game->player.number_of_movements)));
@@ -108,7 +108,7 @@ static void	move_right(t_game *game, int tmp_x, int tmp_y)
 	}
 }
 
-int			controller(int key, t_game *game)
+int	controller(int key, t_game *game)
 {
 	int	tmp_x;
 	int	tmp_y;

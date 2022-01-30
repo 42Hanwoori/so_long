@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memset.c                                           :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: whan <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: whan <whan@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/05 15:57:26 by whan              #+#    #+#             */
-/*   Updated: 2020/11/02 16:14:14 by whan             ###   ########.fr       */
+/*   Updated: 2022/01/31 02:09:02 by whan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	*ft_memset(void *b, int c, size_t len)
 
 	a = 0;
 	sub = (unsigned char)c;
-	usen = (unsigned char*)b;
+	usen = (unsigned char *)b;
 	while (a++ < len)
 		*usen++ = sub;
 	return (b);

@@ -3,95 +3,120 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: whan <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: whan <whan@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 13:56:18 by whan              #+#    #+#             */
-/*   Updated: 2020/11/05 16:01:14 by whan             ###   ########.fr       */
+/*   Updated: 2022/01/31 02:10:43 by whan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		check_and_free_all(char **s, char *sen, int i)
+static int	ft_str_count(char const *s, char c)
 {
-	int n;
-
-	n = 0;
-	if (!sen)
-	{
-		while (n <= i)
-			free(s[n++]);
-		free(s);
-		return (0);
-	}
-	return (1);
-}
-
-static void		fill_inside(char *pocket, int start, int end, const char *ingrd)
-{
-	int i;
+	int	i;
+	int	count;
 
 	i = 0;
-	while (start < end)
-		pocket[i++] = ingrd[start++];
-	pocket[i] = 0;
-}
-
-static char		**fill_in(char const *s, char c, char **draw)
-{
-	int		order;
-	int		i;
-	int		j;
-
-	order = 0;
-	i = 0;
+	count = 0;
 	while (s[i])
 	{
-		if (s[i] != c)
-		{
-			j = i;
-			while (i < (int)ft_strlen(s) && s[i] != c)
-				i++;
-			draw[order] = (char *)malloc(sizeof(char) * (i - j + 1));
-			if (!check_and_free_all(draw, draw[order], order))
-				return (NULL);
-			fill_inside(draw[order], j, i, s);
-			order++;
-		}
-		else
+		while (s[i] && s[i] == c)
 			i++;
+		if (s[i] && s[i] != c)
+		{
+			count++;
+			while (s[i] && s[i] != c)
+				i++;
+		}
 	}
-	return (draw);
+	return (count);
 }
 
-static size_t	how_many(char const *s, char c)
+static void	*ft_free(char **s2, int j)
 {
-	size_t	i;
-	size_t	n;
+	int	i;
 
-	i = -1;
-	n = 0;
-	while (s[++i])
+	i = 0;
+	while (i <= j)
 	{
-		if (s[i] != c && s[i + 1] == c)
-			n += 1;
-		else if (s[i] != c && i + 1 == ft_strlen(s))
-			n += 1;
+		free(s2[i]);
+		i++;
 	}
-	return (n);
+	free(s2);
+	return (NULL);
 }
 
-char			**ft_split(char const *s, char c)
+static char	**ft_chr_count(char **s2, char const *s, char c)
 {
-	size_t	len;
-	char	**spt_s;
+	int	i;
+	int	j;
+	int	count;
 
-	len = how_many(s, c);
-	spt_s = (char **)malloc(sizeof(char *) * (len + 1));
-	if (!spt_s)
+	i = 0;
+	j = -1;
+	while (s[i])
+	{
+		count = 0;
+		while (s[i] && s[i] == c)
+			i++;
+		if (s[i] && s[i] != c)
+		{
+			j++;
+			while (s[i] && s[i] != c)
+			{
+				count++;
+				i++;
+			}
+			s2[j] = (char *)malloc(sizeof(char) * (count + 1));
+			if (!s2[j])
+				return (ft_free(s2, j - 1));
+		}
+	}
+	return (s2);
+}
+
+static void	ft_strcpy(char **s2, char const *s, char c)
+{
+	int	i;
+	int	j;
+	int	k;
+
+	i = 0;
+	j = -1;
+	while (s[i])
+	{
+		k = 0;
+		while (s[i] && s[i] == c)
+			i++;
+		if (s[i] && s[i] != c)
+		{
+			j++;
+			while (s[i] && s[i] != c)
+			{
+				s2[j][k] = s[i];
+				i++;
+				k++;
+			}
+			s2[j][k] = '\0';
+		}
+	}
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**s2;
+	int		count;
+
+	if (!s)
 		return (NULL);
-	if (!fill_in(s, c, spt_s))
+	count = ft_str_count(s, c);
+	s2 = (char **)malloc(sizeof(char *) * (count + 1));
+	if (!s2)
 		return (NULL);
-	spt_s[len] = (0);
-	return (spt_s);
+	if (ft_chr_count(s2, s, c) == NULL)
+		return (NULL);
+	s2[count] = NULL;
+	ft_strcpy(s2, s, c);
+	return (s2);
 }

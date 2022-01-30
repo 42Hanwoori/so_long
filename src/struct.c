@@ -6,13 +6,13 @@
 /*   By: whan <whan@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 19:20:44 by whan              #+#    #+#             */
-/*   Updated: 2022/01/30 01:29:20 by whan             ###   ########.fr       */
+/*   Updated: 2022/01/31 02:44:39 by whan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int			clean_struct(t_game *game)
+int	clean_struct(t_game *game)
 {
 	ft_free_array((void *) game->map.map, game->map.height);
 	if (game->images.ground != NULL)
@@ -78,7 +78,7 @@ static void	init_image(t_game *game)
 	CHARMANDER_RIGHT, &width, &height);
 }
 
-void		init_struct(t_game *game, char **arguments)
+void	init_struct(t_game *game, char **arguments)
 {
 	init_struct_map(game, arguments[1]);
 	game->title = arguments[0];
@@ -86,7 +86,7 @@ void		init_struct(t_game *game, char **arguments)
 	game->end = 0;
 }
 
-void		init_game(t_game *game)
+void	init_game(t_game *game)
 {
 	int		width;
 	int		height;

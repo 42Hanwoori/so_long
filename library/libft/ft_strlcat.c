@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: whan <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: whan <whan@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 15:48:42 by whan              #+#    #+#             */
-/*   Updated: 2020/10/22 09:40:49 by whan             ###   ########.fr       */
+/*   Updated: 2022/01/31 02:11:10 by whan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	size_t i;
-	size_t j;
-	size_t d_len;
-	size_t s_len;
+	size_t	i;
+	size_t	j;
+	size_t	d_len;
+	size_t	s_len;
 
 	j = 0;
 	i = 0;
